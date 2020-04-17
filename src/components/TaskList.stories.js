@@ -1,14 +1,12 @@
 import React from 'react';
 
-import TaskList from './TaskList';
+// Import of the function (not of the wrapped Redux Component)
+// Called a pure function
+import { PureTaskList }  from './TaskList';
 import { taskData, actionsData } from './Task.stories';
+import { storiesOf } from '@storybook/react';
 
-export default {
-    component: TaskList,
-    title: 'TaskList',
-    decorators: [story => <div style={{ padding: '3rem' }}>{story()}</div>],
-    excludeStories: /.*Data$/,
-};
+
 
 export const defaultTasksData = [
     { ...taskData, id: '1', title: 'Task 1' },
@@ -24,10 +22,11 @@ export const withPinnedTasksData = [
     { id: '6', title: 'Task 6 (pinned)', state: 'TASK_PINNED' },
 ];
 
-export const Default = () => <TaskList tasks={defaultTasksData} {...actionsData} />;
 
-export const WithPinnedTasks = () => <TaskList tasks={withPinnedTasksData} {...actionsData} />;
+storiesOf('TaskList', module)
+    .addDecorator(story => <div style={{ padding: '3rem' }}>{story()}</div>)
+    .add('default', () => <PureTaskList tasks={defaultTasksData} {...actionsData} />)
+    .add('WithPinnedTasks', () => <PureTaskList tasks={withPinnedTasksData} {...actionsData} />)
+    .add('loading', () => <PureTaskList loading tasks={[]} {...actionsData} />)
+    .add('empty', () => <PureTaskList tasks={[]} {...actionsData} />);
 
-export const Loading = () => <TaskList loading tasks={[]} {...actionsData} />;
-
-export const Empty = () => <TaskList tasks={[]} {...actionsData} />;
