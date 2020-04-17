@@ -42,8 +42,10 @@ export const taskData = {
 
 /** 
  * Not a story (default:excludeStories exclude it)
- * Set of Storybook actions passed to the component in the stories (below)
- * ie
+ * Set of Storybook actions (mocked callback) passed to the component as callback mock function
+ * They will just show the action in the Action panel
+ * 
+ * FYI: ie
  * <Task {...actionsData}> 
  *     is equivalent to 
  * <Task onPinTask={actionsData.onPinTask} onArchiveTask={actionsData.onArchiveTask}>.

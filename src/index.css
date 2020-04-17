@@ -199,6 +199,7 @@ textarea {
     opacity: 0.5;
   }
 }
+
 .force-wrap {
   word-wrap: break-word;
   word-break: break-all;
