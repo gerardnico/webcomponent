@@ -9,6 +9,8 @@ A directory of web component / library built with
   * [StoryBook](./doc/storybook.md)
   * Jest
 
+See the [available scripts](./doc/scripts.md) to start/build this project.
+
 ## Example
 
   * A [Task component](./src/components/Task.js)
@@ -20,4 +22,5 @@ A directory of web component / library built with
 
 
 ## Ref / Doc
-The first components come from https://www.learnstorybook.com/
+   * The first components come from https://www.learnstorybook.com/
+
