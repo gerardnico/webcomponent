@@ -47,7 +47,7 @@ export function PureTaskList({ loading, tasks, onPinTask, onArchiveTask }) {
                 <div className="wrapper-message">
                     <span className="icon-check" />
                     <div className="title-message">You have no tasks</div>
-                    <div className="subtitle-message">Sit back and relax</div>
+                    <div className="subtitle-message">Sit back 2 and relax</div>
                 </div>
             </div>
         );
@@ -78,9 +78,10 @@ PureTaskList.defaultProps = {
     loading: false,
 };
 
-// Default export component to be used with Redux 
-// the TaskList is now a container, and no longer expects any props, 
+// The default export component to be used with Redux 
+// The default export is now a container, and does not accept any props,
 // instead it connects to the store and sets the props on the PureTaskList component it wraps
+// If you want to give props, use the export of the pure function instead
 export default connect(
     ({ tasks }) => ({
         tasks: tasks.filter(t => t.state === 'TASK_INBOX' || t.state === 'TASK_PINNED'),
